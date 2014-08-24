@@ -1,0 +1,64 @@
+body{
+	padding-top:40px;
+	font-family: serif;
+	letter-spacing: 1px;
+	font-size:.8em;
+	text-align: center;
+	color:#333;
+}
+.container{
+	display:block;
+	max-width:1120px;
+	width:100%;
+	margin: 0 auto;
+}
+.rotate-container{
+	max-width: 100%;
+	overflow:hidden;
+	position:relative;
+	left:-99999px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.rotate-container .fade-left, .rotate-container .fade-right{
+	width:50px;
+	height:100%;
+	position:absolute;
+	z-index:1;
+	cursor:pointer;
+}
+
+.rotate-container .fade-left{
+	background: linear-gradient(to left, rgba(0,0,0,0), #fff);
+	left:0;
+}
+
+.rotate-container .fade-right{
+	background: linear-gradient(to right, rgba(0,0,0,0), #fff);
+	right:0;
+}
+
+.rotate{
+	display:block;
+	list-style: none;
+	position:relative;
+	left:0;
+	padding:0px;
+
+	transition: left .3s ease;
+	-webkit-transition: left .3s ease;
+	-moz-transition: left .3s ease;
+	-o-transition: ;
+}
+.rotate li{
+	display:inline;
+	padding:0px 20px;
+	float:left;
+}
+	.rotate li:first-child{
+		padding-left:0px;
+	}
+.rotate li img{
+	max-height:70px;
+}
