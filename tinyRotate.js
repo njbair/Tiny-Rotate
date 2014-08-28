@@ -19,25 +19,22 @@ var rotate = {
         var rotateContainers = document.getElementsByClassName(rotate.config.containerClass);
         var nextButtons = document.getElementsByClassName(rotate.config.nextClass);
         var prevButtons = document.getElementsByClassName(rotate.config.prevClass);
+		var images,rotator,i,j;
 
         for (i = 0; i < rotateContainers.length; i++) {
 
-            var rotator = {
+            rotator = {
                 html: rotateContainers[i],
                 currentIndex: 0
             }
 
             rotate.nsVariables.collection.push(rotator);
-        }
 
-        for (i = 0; i < document.images.length; i++) {
-
-            // Avoid undefined error
-            if (!rotate.hasTwoOffsetParents(document.images[i])) continue;
-
-            if (document.images[i].offsetParent.offsetParent.className == rotate.config.containerClass) {
-                rotate.nsVariables.images.push(document.images[i]);
-            }
+			images = rotateContainers[i].getElementsByTagName('img');
+			
+			for (j = 0; j < images.length; j++) {
+				rotate.nsVariables.images.push(images[j]);
+			}
         }
 
         // Add load event listener to to all images in the rotate containers
@@ -175,12 +172,5 @@ var rotate = {
             if (list.style.left != '0px')
                 list.style.left = '0px';
         }
-    },
-
-    hasTwoOffsetParents: function(activeTarget) {
-
-        if (activeTarget.offsetParent == null) return false;
-        if (activeTarget.offsetParent.offsetParent == null) return false;
-        return true;
     }
 }
